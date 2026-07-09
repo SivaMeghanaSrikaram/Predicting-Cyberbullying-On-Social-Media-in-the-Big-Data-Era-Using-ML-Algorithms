@@ -1,0 +1,54 @@
+{% load static %}
+<html>
+<head>
+<title>Towards Multi Modal Approach for Identification and Detection of Cyberbullying in Social Networks</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1>Predicting Cyberbullying on Social Media in the
+Big Data Era Using Machine<br/> Learning Algorithms:
+Review of Literature and Open Challenges</h1>
+		</div>
+		<div id="slogan">
+			
+		</div>
+	</div>
+	<div id="menu">
+		<ul>
+      <li><a href="{% url 'SendPost' %}">Send Post</a></li>
+      <li><a href="{% url 'ViewUserPost' %}">View Post</a></li>
+       <li><a href="{% url 'index' %}">Logout</a></li>
+   </ul>
+		<br class="clearfix" />
+	</div>
+	<div id="splash">
+		<img class="pic" src="{% static 'images/viewp.JPG' %}" width="870" height="230" alt="" />
+	</div>
+	<br/>
+	 <br/>
+	 <table border="1" align="center" width="100%">
+        <tr>
+            <th>Sender Name</th>
+            <th>File Name</th>
+            <th>Message</th>
+            <th>Post Time</th>
+            <th>Status</th>
+        </tr>
+        {% for post in posts %}
+        <tr>
+            <td>{{ post.sender_name }}</td>
+            <td><img src="{% static post.file_name %}" alt="User Image" width="100" height="50" /></td>
+            <td>{{ post.message }}</td>
+            <td>{{ post.post_time }}</td>
+            <td>{{ post.status }}</td>
+			
+        </tr>
+        {% endfor %}
+    </table>
+	
+</body>
+</html>
